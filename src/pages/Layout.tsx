@@ -1,4 +1,3 @@
-import React from 'react'
 import NavigationBar from '../components/NavigationBar'
 import { Outlet, useMatch } from 'react-router-dom'
 import { Grid, GridItem } from '@chakra-ui/react'
