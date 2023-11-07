@@ -8,7 +8,7 @@ const HomePage = () => {
     return (
         <>
             <GridItem
-                display={['none', 'none', 'block']}
+                display={['none', 'none', 'initial']}
                 px="5px"
                 area={'sideBar'}
             >
