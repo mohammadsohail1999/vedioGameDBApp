@@ -62,12 +62,14 @@ const GameDetail = () => {
                         <HStack px={'2.5'} alignItems={'start'}></HStack> */}
                         <Box>
                             {!isTrailerDataLoading ? (
-                                <video
-                                    autoPlay
-                                    controls
-                                    src={`${trailerData?.results?.[0]?.data?.[480]}`}
-                                    muted
-                                />
+                                trailerData?.results?.length ? (
+                                    <video
+                                        autoPlay
+                                        controls
+                                        src={`${trailerData?.results?.[0]?.data?.[480]}`}
+                                        muted
+                                    />
+                                ) : null
                             ) : null}
                             <GameScreenshotGrid />
                         </Box>

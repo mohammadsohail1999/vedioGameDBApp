@@ -8,7 +8,14 @@ const GameScreenshotGrid = () => {
     return (
         <SimpleGrid columns={[1, 1, 2, 2]} spacing={2}>
             {data?.results?.map((image) => {
-                return <Image src={image?.image} key={image?.id} />
+                return (
+                    <Image
+                        height={'200'}
+                        width={'100%'}
+                        src={image?.image}
+                        key={image?.id}
+                    />
+                )
             })}
         </SimpleGrid>
     )

@@ -18,10 +18,14 @@ const Attributes = ({ AttrType, data }: Props) => {
     return (
         <VStack spacing={'2'} flexGrow={1} alignItems={'start'}>
             <Text color={'gray.400'} fontSize={'2xl'} fontWeight={'bold'}>
-                {AttrType === 'platforms' && 'Platforms'}
-                {AttrType === 'genres' && 'Genres'}
-                {AttrType === 'metascrore' && 'Metascrore'}
-                {AttrType === 'publishers' && 'Publishers'}
+                {AttrType === 'platforms' &&
+                    data?.platforms?.length &&
+                    'Platforms'}
+                {AttrType === 'genres' && data?.genres?.length && 'Genres'}
+                {AttrType === 'metascrore' && data?.metacritic && 'Metascrore'}
+                {AttrType === 'publishers' &&
+                    data?.publishers?.length &&
+                    'Publishers'}
             </Text>
             <Box>
                 {/* {AttrType === "metascrore" && } */}
@@ -35,23 +39,17 @@ const Attributes = ({ AttrType, data }: Props) => {
                             )
                         })}
                     </VStack>
-                ) : (
-                    <Text>No Data</Text>
-                )}
+                ) : null}
                 {AttrType === 'metascrore' && data?.metacritic ? (
                     <CriticScore CriticScore={data?.metacritic} />
-                ) : (
-                    <Text>No Data</Text>
-                )}
+                ) : null}
                 {AttrType === 'genres' && data?.genres ? (
                     <VStack alignItems={'start'} spacing={'2.5'}>
                         {data?.genres?.map((genre) => {
                             return <Text key={genre?.name}>{genre?.name}</Text>
                         })}
                     </VStack>
-                ) : (
-                    <Text>No Data</Text>
-                )}
+                ) : null}
                 {AttrType === 'publishers' && data?.publishers ? (
                     <VStack alignItems={'start'} spacing={'2.5'}>
                         {data?.publishers?.map((publisher) => {
@@ -62,9 +60,7 @@ const Attributes = ({ AttrType, data }: Props) => {
                             )
                         })}
                     </VStack>
-                ) : (
-                    <Text>No Data</Text>
-                )}
+                ) : null}
             </Box>
         </VStack>
     )
